@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<account-authenticator
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accountType="com.island.filemanagerutils.sftp.account"
+    android:icon="@mipmap/sftp"
+    android:smallIcon="@drawable/ic_launcher_foreground"
+    android:label="@string/sftp_account_name"/>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/apk_documents_provider_switch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:button="@drawable/apk_icon"
+        android:text="@string/apk_section_title"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/root_documents_provider_switch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:button="@drawable/root_icon"
+        android:text="@string/root_section_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/apk_documents_provider_switch" />
+
+    <Button
+        android:id="@+id/create_file_shortcut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="createFileShortcut"
+        android:text="@string/create_file_shortcut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/root_documents_provider_switch" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/sftp_accounts"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_file_shortcut" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:clickable="true"
+        android:contentDescription="@string/add"
+        android:focusable="true"
+        android:onClick="addSftpAccount"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/add_icon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

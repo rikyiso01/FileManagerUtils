@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">FileManagerUtils</string>
+    <string name="account_type" translatable="false">com.island.filemanagerutils.sftp.account</string>
+    <string name="sftp">SFTP</string>
+    <string name="sftp_login_token_type" translatable="false">password</string>
+    <string name="sftp_authority" translatable="false">com.island.filemanagerutils.sftp</string>
+    <string name="host">Host</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="port">Port</string>
+    <string name="add_account">Add Account</string>
+    <string name="host_example" translatable="false">192.168.1.1</string>
+    <string name="port_example" translatable="false">22</string>
+    <string name="sftp_upload_channel_id" translatable="false">sftp_upload</string>
+    <string name="sftp_upload_channel_name">SFTP Upload</string>
+    <string name="sftp_upload_notification_title">Uploading</string>
+    <string name="sftp_account_name">Secure File Transfer Protocol</string>
+    <string name="apk">APK</string>
+    <string name="root">Root</string>
+    <string name="root_upload_channel_id" translatable="false">root_upload</string>
+    <string name="root_upload_channel_name">Root</string>
+    <string name="root_upload_notification_title">Writing</string>
+    <string name="apk_section_title">Apk Documents Provider</string>
+    <string name="root_section_title">Root Documents Provider</string>
+    <string name="create_file_shortcut">Create file shortcut</string>
+    <string name="add">Add</string>
+    <string name="remove">Remove</string>
+    <string name="shared_preferences" translatable="false">shared_preferences</string>
+    <string name="apk_enabled_preference" translatable="false">apk_enabled</string>
+    <string name="root_enabled_preference" translatable="false">root_enabled</string>
+    <string name="root_authority" translatable="false">com.island.filemanagerutils.root</string>
+    <string name="apk_authority" translatable="false">com.island.filemanagerutils.apk</string>
+    <string name="import_keyfile">Import keyfile</string>
+    <string name="keyfile_value" translatable="false">__keyfile__</string>
+    <string name="keys_folder" translatable="false">keys</string>
+    <string name="keyfile_tmp" translatable="false">keyfile</string>
+    <string name="sftp_keyfile_token_type" translatable="false">keyfile</string>
+    <string name="mount">Mount</string>
+</resources>
