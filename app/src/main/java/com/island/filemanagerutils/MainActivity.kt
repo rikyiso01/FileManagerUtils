@@ -27,6 +27,7 @@ import com.google.android.material.switchmaterial.SwitchMaterial
 class MainActivity : AppCompatActivity()
 {
     private val TAG="MainActivity"
+    private val ACTION_CREATE_FILE_SHORTCUT="com.island.filemanagerutils.action.CREATE_FILE_SHORTCUT"
     private val CREATE_FILE_SHORTCUT=1
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -60,11 +61,16 @@ class MainActivity : AppCompatActivity()
         if(!resources.getBoolean(R.bool.enable_apk_documents_provider))apkSwitch.visibility=View.GONE
         if(!(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O&&(getSystemService(ShortcutManager::class.java)).isRequestPinShortcutSupported))
             findViewById<View>(R.id.create_file_shortcut).visibility=View.GONE
+        if (intent!!.action==ACTION_CREATE_FILE_SHORTCUT)createFileShortcut()
     }
 
     fun createFileShortcut(view:View)
     {
         Log.i(TAG,"CreateFileShortcut $view")
+    }
+
+    private fun createFileShortcut()
+    {
         val intent=Intent(Intent.ACTION_OPEN_DOCUMENT).apply()
         {
             addCategory(Intent.CATEGORY_OPENABLE)

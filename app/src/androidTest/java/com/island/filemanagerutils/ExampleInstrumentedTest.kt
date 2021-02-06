@@ -14,9 +14,11 @@ import org.junit.Assert.*
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 @RunWith(AndroidJUnit4::class)
-class ExampleInstrumentedTest {
+class ExampleInstrumentedTest
+{
     @Test
-    fun useAppContext() {
+    fun useAppContext()
+    {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.island.filemanagerutils", appContext.packageName)

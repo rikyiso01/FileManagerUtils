@@ -36,6 +36,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="com.island.filemanagerutils.action.CREATE_FILE_SHORTCUT" />
+            </intent-filter>
+            <meta-data android:name="android.app.shortcuts"
+                       android:resource="@xml/shortcuts" />
         </activity>
         <activity android:name=".sftp.SFTPAuthenticationActivity">
             <intent-filter>

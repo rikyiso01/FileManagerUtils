@@ -1,0 +1,14 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="add_sftp"
+        android:enabled="true"
+        android:icon="@mipmap/sftp"
+        android:shortcutShortLabel="@string/add_account"
+        android:shortcutLongLabel="@string/add_account">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.island.filemanagerutils"
+            android:targetClass="com.island.filemanagerutils.sftp.SFTPAuthenticationActivity" />
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+</shortcuts>

@@ -27,11 +27,6 @@ class SFTPAuthenticationActivity:AppCompatActivity(),CoroutineScope by MainScope
     {
         Log.i(TAG, "OnCreate")
         super.onCreate(savedInstanceState)
-        if(intent.getStringExtra(AccountManager.KEY_ACCOUNT_TYPE)==null)
-        {
-            finish()
-            return
-        }
         setContentView(R.layout.authentication_activity)
         val uri=intent.data
         if (uri != null)
@@ -55,7 +50,7 @@ class SFTPAuthenticationActivity:AppCompatActivity(),CoroutineScope by MainScope
         val user = (findViewById<View>(R.id.username) as EditText).text.toString()
         val password = (findViewById<View>(R.id.password) as EditText).text.toString()
         if (ip.isEmpty() || port.isEmpty() || user.isEmpty() || password.isEmpty()) return
-        val accountType = intent.getStringExtra(AccountManager.KEY_ACCOUNT_TYPE)
+        val accountType = getString(R.string.account_type)
         val username = "$user@$ip:$port"
         val account = Account(username, accountType)
         val accountManager = AccountManager.get(this)
