@@ -17,7 +17,7 @@ import java.io.FileNotFoundException
 
 abstract class AbstractDocumentsProvider: DocumentsProvider(),CoroutineScope by MainScope()
 {
-    private val TAG="AbstractDocumentsProvider"
+    private val TAG="AbstractDocumentsProv"
     private var roots:Iterable<AbstractRoot> = ArrayList()
 
     private val DEFAULT_ROOT_PROJECTION: Array<String> = arrayOf(
