@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">FileManagerUtils</string>
+    <string name="sftp">SFTP</string>
+    <string name="host">Host</string>
+    <string name="username">Benutzername</string>
+    <string name="password">Passwort</string>
+    <string name="port">Port</string>
+    <string name="add_account">Konto hinzufügen</string>
+    <string name="sftp_upload_channel_name">SFTP Upload</string>
+    <string name="sftp_upload_notification_title">lade hoch</string>
+    <string name="sftp_account_name">Secure File Transfer Protocol</string>
+    <string name="apk">APK</string>
+    <string name="root">Root</string>
+    <string name="root_upload_channel_name">Root</string>
+    <string name="root_upload_notification_title">wird geschrieben</string>
+    <string name="apk_section_title">Apk Dokumentenanbieter</string>
+    <string name="root_section_title">Root Dokumentenanbieter</string>
+    <string name="create_file_shortcut">Dateiverknüpfung erstellen</string>
+    <string name="add">Hinzufügen</string>
+    <string name="remove">Entfernen</string>
+    <string name="import_keyfile">Schlüsseldatei importieren</string>
+    <string name="mount">Einbinden</string>
+</resources>
