@@ -1,0 +1,37 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Create Release template" type="docker-deploy" factoryName="docker-image" server-name="Docker">
+    <deployment type="docker-image">
+      <settings>
+        <option name="imageTag" value="androidsdk/android-30" />
+        <option name="command" value="/bin/bash -c &quot;cp -r /app/* /build &amp;&amp; cd /build &amp;&amp; ./gradlew app:assembleRelease &amp;&amp; zipalign -fvp 4 app/build/outputs/apk/release/app-release-unsigned.apk app/build/outputs/apk/release/app-unsigned.apk &amp;&amp; echo $SIGNING_KEY | base64 -d &gt; keystore.jks &amp;&amp; apksigner sign --ks keystore.jks --ks-pass env:KEYSTORE_PASSWORD --out output/app.apk app/build/outputs/apk/release/app-unsigned.apk&quot;" />
+        <option name="containerName" value="androidsdk" />
+        <option name="entrypoint" value="" />
+        <option name="envVars">
+          <list>
+            <DockerEnvVarImpl>
+              <option name="name" value="KEYSTORE_PASSWORD" />
+              <option name="value" value="" />
+            </DockerEnvVarImpl>
+            <DockerEnvVarImpl>
+              <option name="name" value="SIGNING_KEY" />
+              <option name="value" value="" />
+            </DockerEnvVarImpl>
+          </list>
+        </option>
+        <option name="commandLineOptions" value="" />
+        <option name="volumeBindings">
+          <list>
+            <DockerVolumeBindingImpl>
+              <option name="containerPath" value="/app" />
+              <option name="readOnly" value="true" />
+            </DockerVolumeBindingImpl>
+            <DockerVolumeBindingImpl>
+              <option name="containerPath" value="/build/output" />
+            </DockerVolumeBindingImpl>
+          </list>
+        </option>
+      </settings>
+    </deployment>
+    <method v="2" />
+  </configuration>
+</component>

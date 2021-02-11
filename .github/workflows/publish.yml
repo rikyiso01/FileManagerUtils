@@ -1,0 +1,42 @@
+name: Publish
+on:
+  workflow_dispatch:
+    inputs:
+      changelog:
+        description: The changelog for the release
+        required: true
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    container: androidsdk/android-30
+    steps:
+      - uses: actions/checkout@v2
+      - run: ./gradlew app:assembleRelease
+      - run: zipalign -fvp 4 app/build/outputs/apk/release/app-release-unsigned.apk app/build/outputs/apk/release/app-unsigned.apk
+      - run: echo $SIGNING_KEY | base64 -d > keystore.jks
+        env:
+          SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
+      - run: apksigner sign --ks keystore.jks --ks-pass env:KEYSTORE_PASSWORD --out app.apk app/build/outputs/apk/release/app-unsigned.apk
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+      - run: echo "version=$(grep versionName app/build.gradle | awk '{print substr($2,2,length($2)-2)}')" >> $GITHUB_ENV
+      - run: echo "name=$(grep applicationId app/build.gradle | awk '{print substr($2,2,length($2)-2)}')" >> $GITHUB_ENV
+      - run: echo "prerelease=$(if [[ $version < '1' ]];then echo 'true';else echo 'false';fi)" >> $GITHUB_ENV
+      - uses: actions/create-release@v1
+        id: create_release
+        with:
+          tag_name: v${{ env.version }}
+          release_name: v${{ env.version }}
+          body: ${{ github.event.inputs.changelog }}
+          draft: false
+          prerelease: ${{ env.prerelease }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: app.apk
+          asset_name: ${{ env.name }}
+          asset_content_type: application/octet-stream
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
