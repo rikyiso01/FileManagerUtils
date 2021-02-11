@@ -1,10 +1,6 @@
 name: Publish
 on:
   workflow_dispatch:
-    inputs:
-      changelog:
-        description: The changelog for the release
-        required: true
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -20,6 +16,7 @@ jobs:
         env:
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
       - run: echo "version=$(grep versionName app/build.gradle | awk '{print substr($2,2,length($2)-2)}')" >> $GITHUB_ENV
+      - run: echo "changelog=$(cat metadata/en-US/changelogs/$(grep versionCode app/build.gradle | awk '{print $2}').txt)" >> $GITHUB_ENV
       - run: echo "name=$(grep applicationId app/build.gradle | awk '{print substr($2,2,length($2)-2)}')" >> $GITHUB_ENV
       - run: echo "prerelease=$(if [[ $version < '1' ]];then echo 'true';else echo 'false';fi)" >> $GITHUB_ENV
       - uses: actions/create-release@v1
@@ -27,7 +24,7 @@ jobs:
         with:
           tag_name: v${{ env.version }}
           release_name: v${{ env.version }}
-          body: ${{ github.event.inputs.changelog }}
+          body: ${{ env.changelog }}
           draft: false
           prerelease: ${{ env.prerelease }}
         env:
