@@ -1,0 +1,6 @@
+Dies ist eine Liste von Funktionen die der standardmäßigen Dateiverwaltung von Android hinzugefügt werden können (Funktionen sind abhängig von Ihrer Androidversion)
+
+    - SFTP Client
+    - APK extrahieren (nicht kompatibel mit Android 11)
+    - Datei-Explorer auf Root-Ebene (das Gerät muss gerootet sein)
+    - Dateiverknüpfungen erstellen (ab Android 8.0)
